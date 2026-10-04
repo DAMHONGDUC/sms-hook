@@ -31,6 +31,8 @@ interface CallLogRepository {
 
     suspend fun deleteOlderThan(epochMillis: Long): Int
 
+    suspend fun deleteByConfig(configId: Long): Int
+
     /** Analytics below exclude TEST calls. */
     fun observeSummary(fromMillis: Long): Flow<CallSummary>
 

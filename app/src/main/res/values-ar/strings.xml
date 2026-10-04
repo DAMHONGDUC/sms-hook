@@ -263,4 +263,10 @@
         <item quantity="many">ستتم إعادة إرسال %1$d استدعاءً فاشلًا إلى %2$s.</item>
         <item quantity="other">ستتم إعادة إرسال %1$d استدعاء فاشل إلى %2$s.</item>
     </plurals>
+    <string name="settings_developer">المطوّر</string>
+    <string name="settings_demo_desc">أضف واجهات API ورسائل SMS وسجل استدعاءات تجريبيًا لأسبوعين لتجربة كل الشاشات. واجهات API التجريبية معطّلة، لذا لا تُرسل إليها رسائل SMS حقيقية أبدًا.</string>
+    <string name="settings_demo_add">إضافة بيانات تجريبية</string>
+    <string name="settings_demo_remove">إزالة البيانات التجريبية</string>
+    <string name="settings_demo_added">تمت إضافة البيانات التجريبية</string>
+    <string name="settings_demo_removed">تمت إزالة البيانات التجريبية</string>
 </resources>

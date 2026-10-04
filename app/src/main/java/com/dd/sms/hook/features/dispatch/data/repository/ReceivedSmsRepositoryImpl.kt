@@ -25,4 +25,6 @@ class ReceivedSmsRepositoryImpl @Inject constructor(
     override fun observeCountSince(fromMillis: Long): Flow<Int> = dao.observeCountSince(fromMillis)
 
     override suspend fun deleteOlderThan(epochMillis: Long): Int = dao.deleteOlderThan(epochMillis)
+
+    override suspend fun deleteBySubscription(subscriptionId: Int): Int = dao.deleteBySubscription(subscriptionId)
 }

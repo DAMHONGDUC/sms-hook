@@ -17,9 +17,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
@@ -33,6 +35,7 @@ import com.dd.sms.hook.shared.presentation.theme.CodeFontFamily
 import com.dd.sms.hook.shared.presentation.theme.Dimens
 import com.dd.sms.hook.shared.presentation.ui.KeyValueRow
 import com.dd.sms.hook.shared.presentation.ui.LoadingState
+import com.dd.sms.hook.shared.presentation.ui.MessageEffect
 import com.dd.sms.hook.shared.presentation.ui.PermissionSetupCard
 import com.dd.sms.hook.shared.presentation.ui.ScreenLevel
 import com.dd.sms.hook.shared.presentation.ui.ScreenScaffold
@@ -45,8 +48,15 @@ import com.dd.sms.hook.features.settings.domain.model.RetentionPeriod
 @Composable
 fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
     val settings: AppSettings? by viewModel.settings.collectAsStateWithLifecycle()
+    val snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
 
-    ScreenScaffold(title = stringResource(R.string.settings_title), level = ScreenLevel.TOP) { padding ->
+    MessageEffect(viewModel.messages, snackbarHostState)
+
+    ScreenScaffold(
+        title = stringResource(R.string.settings_title),
+        level = ScreenLevel.TOP,
+        snackbarHostState = snackbarHostState,
+    ) { padding ->
         val current: AppSettings = settings ?: run {
             LoadingState(modifier = Modifier.padding(padding))
             return@ScreenScaffold
@@ -86,6 +96,7 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                 }
             }
             PlaceholderHelpCard()
+            if (BuildConfig.IS_DEV) DeveloperSection(viewModel)
             SectionCard(title = stringResource(R.string.settings_about), icon = Icons.Filled.Info) {
                 KeyValueRow(stringResource(R.string.settings_version), versionLabel())
             }

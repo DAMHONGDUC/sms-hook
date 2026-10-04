@@ -94,6 +94,12 @@ class FakeCallLogRepository(initial: List<CallLog> = emptyList()) : CallLogRepos
     override suspend fun delete(id: Long) = logs.update { list -> list.filterNot { it.id == id } }
     override suspend fun clearAll() = logs.update { emptyList() }
 
+    override suspend fun deleteByConfig(configId: Long): Int {
+        val before: Int = logs.value.size
+        logs.update { list -> list.filterNot { it.configId == configId } }
+        return before - logs.value.size
+    }
+
     override suspend fun deleteOlderThan(epochMillis: Long): Int {
         deletedBefore = epochMillis
         val before: Int = logs.value.size
@@ -133,6 +139,12 @@ class FakeReceivedSmsRepository : ReceivedSmsRepository {
     override suspend fun setMatchedCount(id: Long, count: Int) =
         sms.update { list -> list.map { if (it.id == id) it.copy(matchedCount = count) else it } }
     override fun observeCountSince(fromMillis: Long): Flow<Int> = sms.map { list -> list.count { it.receivedAt >= fromMillis } }
+
+    override suspend fun deleteBySubscription(subscriptionId: Int): Int {
+        val before: Int = sms.value.size
+        sms.update { list -> list.filterNot { it.subscriptionId == subscriptionId } }
+        return before - sms.value.size
+    }
 
     override suspend fun deleteOlderThan(epochMillis: Long): Int {
         deletedBefore = epochMillis

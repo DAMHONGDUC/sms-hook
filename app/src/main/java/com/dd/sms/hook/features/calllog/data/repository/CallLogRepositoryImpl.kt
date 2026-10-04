@@ -49,6 +49,8 @@ class CallLogRepositoryImpl @Inject constructor(
 
     override suspend fun deleteOlderThan(epochMillis: Long): Int = dao.deleteOlderThan(epochMillis)
 
+    override suspend fun deleteByConfig(configId: Long): Int = dao.deleteByConfig(configId)
+
     override fun observeSummary(fromMillis: Long): Flow<CallSummary> =
         dao.observeSummary(fromMillis, success, excluded).map { row ->
             CallSummary(total = row.total, success = row.success, avgDurationMs = row.avgDuration?.toLong() ?: 0L)

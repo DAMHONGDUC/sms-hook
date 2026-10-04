@@ -239,4 +239,10 @@
         <item quantity="one">%2$s को %1$d विफल कॉल फिर से भेजी जाएगी।</item>
         <item quantity="other">%2$s को %1$d विफल कॉल फिर से भेजी जाएँगी।</item>
     </plurals>
+    <string name="settings_developer">डेवलपर</string>
+    <string name="settings_demo_desc">हर स्क्रीन आज़माने के लिए नमूना API, SMS और दो हफ़्ते का कॉल इतिहास जोड़ें। नमूना API बंद रहते हैं, इसलिए असली SMS उन्हें कभी नहीं भेजे जाते।</string>
+    <string name="settings_demo_add">नमूना डेटा जोड़ें</string>
+    <string name="settings_demo_remove">नमूना डेटा हटाएँ</string>
+    <string name="settings_demo_added">नमूना डेटा जोड़ा गया</string>
+    <string name="settings_demo_removed">नमूना डेटा हटाया गया</string>
 </resources>

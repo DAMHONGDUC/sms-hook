@@ -245,4 +245,10 @@
         <item quantity="many">Se volverán a enviar %1$d llamadas fallidas a %2$s.</item>
         <item quantity="other">Se volverán a enviar %1$d llamadas fallidas a %2$s.</item>
     </plurals>
+    <string name="settings_developer">Desarrollador</string>
+    <string name="settings_demo_desc">Añade APIs, SMS y dos semanas de historial de ejemplo para probar todas las pantallas. Las APIs de ejemplo están desactivadas, así que nunca reciben SMS reales.</string>
+    <string name="settings_demo_add">Añadir datos de ejemplo</string>
+    <string name="settings_demo_remove">Quitar datos de ejemplo</string>
+    <string name="settings_demo_added">Datos de ejemplo añadidos</string>
+    <string name="settings_demo_removed">Datos de ejemplo quitados</string>
 </resources>

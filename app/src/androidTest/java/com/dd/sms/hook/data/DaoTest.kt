@@ -68,6 +68,19 @@ class DaoTest {
     )
 
     @Test
+    fun deletesByConfigAndBySubscriptionOnlyTouchMatchingRows() = runTest {
+        logs.insert(log(configId = 1L))
+        logs.insert(log(configId = 2L))
+        sms.insert(ReceivedSmsEntity(0, "VCB", "demo", 100L, -2, 1))
+        sms.insert(ReceivedSmsEntity(0, "VCB", "real", 100L, 1, 1))
+
+        assertEquals(1, logs.deleteByConfig(1L))
+        assertEquals(1, sms.deleteBySubscription(-2))
+        assertEquals(listOf(2L), logs.observe(null, null, "", 10).first().map { it.configId })
+        assertEquals(1, sms.observeCountSince(0L).first())
+    }
+
+    @Test
     fun callLogs_failedSmsIdsUseLatestRealAttemptPerSms() = runTest {
         logs.insert(log(configId = 1L, smsId = 10L, status = FAILED))
         logs.insert(log(configId = 1L, smsId = 10L, status = SUCCESS))

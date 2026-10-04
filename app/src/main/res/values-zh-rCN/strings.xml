@@ -233,4 +233,10 @@
     <plurals name="history_retry_failed_confirm_message">
         <item quantity="other">将重新发送 %1$d 次发往 %2$s 的失败调用。</item>
     </plurals>
+    <string name="settings_developer">开发者</string>
+    <string name="settings_demo_desc">添加示例 API、短信和两周的调用历史，以便体验所有页面。示例 API 处于停用状态，真实短信不会发送给它们。</string>
+    <string name="settings_demo_add">添加示例数据</string>
+    <string name="settings_demo_remove">移除示例数据</string>
+    <string name="settings_demo_added">已添加示例数据</string>
+    <string name="settings_demo_removed">已移除示例数据</string>
 </resources>

@@ -21,4 +21,7 @@ interface ReceivedSmsDao {
 
     @Query("DELETE FROM received_sms WHERE received_at < :epochMillis")
     suspend fun deleteOlderThan(epochMillis: Long): Int
+
+    @Query("DELETE FROM received_sms WHERE subscription_id = :subscriptionId")
+    suspend fun deleteBySubscription(subscriptionId: Int): Int
 }

@@ -240,4 +240,10 @@
         <item quantity="one">%1$d failed call to %2$s will be sent again.</item>
         <item quantity="other">%1$d failed calls to %2$s will be sent again.</item>
     </plurals>
+    <string name="settings_developer">Developer</string>
+    <string name="settings_demo_desc">Fill the app with sample APIs, SMS and two weeks of call history to try every screen. Demo APIs are disabled, so real SMS are never sent to them.</string>
+    <string name="settings_demo_add">Add demo data</string>
+    <string name="settings_demo_remove">Remove demo data</string>
+    <string name="settings_demo_added">Demo data added</string>
+    <string name="settings_demo_removed">Demo data removed</string>
 </resources>

@@ -13,4 +13,6 @@ interface ReceivedSmsRepository {
     fun observeCountSince(fromMillis: Long): Flow<Int>
 
     suspend fun deleteOlderThan(epochMillis: Long): Int
+
+    suspend fun deleteBySubscription(subscriptionId: Int): Int
 }

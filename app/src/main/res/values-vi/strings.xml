@@ -233,4 +233,10 @@
     <plurals name="history_retry_failed_confirm_message">
         <item quantity="other">%1$d lượt gọi lỗi tới %2$s sẽ được gửi lại.</item>
     </plurals>
+    <string name="settings_developer">Nhà phát triển</string>
+    <string name="settings_demo_desc">Thêm API, SMS và lịch sử gọi mẫu trong hai tuần để thử mọi màn hình. API mẫu bị tắt nên SMS thật không bao giờ được gửi tới chúng.</string>
+    <string name="settings_demo_add">Thêm dữ liệu mẫu</string>
+    <string name="settings_demo_remove">Xoá dữ liệu mẫu</string>
+    <string name="settings_demo_added">Đã thêm dữ liệu mẫu</string>
+    <string name="settings_demo_removed">Đã xoá dữ liệu mẫu</string>
 </resources>

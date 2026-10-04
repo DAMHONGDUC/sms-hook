@@ -57,6 +57,9 @@ interface CallLogDao {
     @Query("DELETE FROM call_logs WHERE created_at < :epochMillis")
     suspend fun deleteOlderThan(epochMillis: Long): Int
 
+    @Query("DELETE FROM call_logs WHERE config_id = :configId")
+    suspend fun deleteByConfig(configId: Long): Int
+
     @Query(
         """
         SELECT COUNT(*) AS total,
