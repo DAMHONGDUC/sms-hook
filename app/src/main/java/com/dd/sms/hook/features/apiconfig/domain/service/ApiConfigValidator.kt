@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.apiconfig.domain.service
 
-import com.dd.sms.hook.core.constants.HttpConstants
+import com.dd.sms.hook.shared.domain.constants.HttpConstants
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig
 import com.dd.sms.hook.features.apiconfig.domain.model.MatchMode
 import java.net.URI

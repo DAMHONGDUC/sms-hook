@@ -5,7 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.dd.sms.hook.features.settings.data.SettingsRepositoryImpl
+import com.dd.sms.hook.features.settings.data.repository.SettingsRepositoryImpl
 import com.dd.sms.hook.features.settings.domain.repository.SettingsRepository
 import dagger.Binds
 import dagger.Module

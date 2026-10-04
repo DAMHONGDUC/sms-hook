@@ -8,7 +8,7 @@ import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.workDataOf
-import com.dd.sms.hook.core.constants.WorkConstants
+import com.dd.sms.hook.shared.domain.constants.WorkConstants
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.dispatch.data.work.ApiCallWorker

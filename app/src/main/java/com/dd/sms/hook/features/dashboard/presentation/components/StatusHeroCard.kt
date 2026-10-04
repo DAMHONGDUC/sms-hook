@@ -34,8 +34,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.ui.IconBadge
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.ui.IconBadge
 import com.dd.sms.hook.features.dashboard.domain.model.DashboardData
 
 private const val TAG_ALPHA = 0.12f

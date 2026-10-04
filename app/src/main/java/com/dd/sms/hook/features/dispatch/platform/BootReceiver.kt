@@ -3,8 +3,8 @@ package com.dd.sms.hook.features.dispatch.platform
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.dd.sms.hook.core.di.ApplicationScope
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.data.di.ApplicationScope
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dispatch.domain.service.KeepAliveController
 import com.dd.sms.hook.features.settings.domain.repository.SettingsRepository
 import dagger.hilt.android.AndroidEntryPoint

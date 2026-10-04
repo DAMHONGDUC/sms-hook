@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.apiconfig.data.repository
 
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.data.local.ApiConfigDao
 import com.dd.sms.hook.features.apiconfig.data.local.ApiConfigMapper
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig

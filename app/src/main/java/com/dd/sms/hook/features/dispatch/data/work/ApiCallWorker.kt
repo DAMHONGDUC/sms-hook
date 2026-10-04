@@ -5,8 +5,8 @@ import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
-import com.dd.sms.hook.core.constants.WorkConstants
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.constants.WorkConstants
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.dispatch.domain.model.DispatchOutcome
 import com.dd.sms.hook.features.dispatch.domain.usecase.ExecuteQueuedCallUseCase

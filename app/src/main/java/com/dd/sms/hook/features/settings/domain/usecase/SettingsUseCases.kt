@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.settings.domain.usecase
 
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.settings.domain.model.AppSettings
 import com.dd.sms.hook.features.settings.domain.model.RetentionPeriod
 import com.dd.sms.hook.features.settings.domain.model.ThemeMode

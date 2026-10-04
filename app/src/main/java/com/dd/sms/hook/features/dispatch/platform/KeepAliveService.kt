@@ -6,8 +6,8 @@ import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.ServiceCompat
-import com.dd.sms.hook.core.constants.NotificationConstants
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.constants.NotificationConstants
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

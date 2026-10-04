@@ -3,7 +3,7 @@ package com.dd.sms.hook.features.apiconfig.data.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dd.sms.hook.core.constants.DatabaseConstants
+import com.dd.sms.hook.shared.domain.constants.DatabaseConstants
 
 @Entity(tableName = DatabaseConstants.TABLE_API_CONFIGS)
 data class ApiConfigEntity(

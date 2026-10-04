@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.testing.invoke
 import app.cash.turbine.test
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.navigation.ApiEditorRoute
+import com.dd.sms.hook.navigation.ApiEditorRoute
 import com.dd.sms.hook.features.apiconfig.domain.model.HttpMethod
 import com.dd.sms.hook.features.apiconfig.domain.service.ApiConfigError
 import com.dd.sms.hook.features.apiconfig.domain.service.ApiConfigValidator

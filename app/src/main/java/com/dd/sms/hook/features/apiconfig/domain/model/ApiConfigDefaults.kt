@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.apiconfig.domain.model
 
-import com.dd.sms.hook.core.constants.HttpConstants
+import com.dd.sms.hook.shared.domain.constants.HttpConstants
 
 /** Starting values for a new API config. */
 object ApiConfigDefaults {

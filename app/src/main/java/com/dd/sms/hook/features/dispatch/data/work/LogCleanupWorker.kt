@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dispatch.domain.usecase.PruneHistoryUseCase
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject

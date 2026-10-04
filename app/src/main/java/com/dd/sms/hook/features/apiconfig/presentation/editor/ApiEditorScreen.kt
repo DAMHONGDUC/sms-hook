@@ -37,12 +37,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.ui.AppMessenger
-import com.dd.sms.hook.core.ui.LoadingState
-import com.dd.sms.hook.core.ui.LocalAppMessenger
-import com.dd.sms.hook.core.ui.ScreenLevel
-import com.dd.sms.hook.core.ui.ScreenScaffold
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.ui.AppMessenger
+import com.dd.sms.hook.shared.presentation.ui.LoadingState
+import com.dd.sms.hook.shared.presentation.ui.LocalAppMessenger
+import com.dd.sms.hook.shared.presentation.ui.ScreenLevel
+import com.dd.sms.hook.shared.presentation.ui.ScreenScaffold
 
 private val BOTTOM_BAR_ELEVATION = 3.dp
 private val PROGRESS_STROKE = 2.dp

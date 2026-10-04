@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.testing.invoke
 import app.cash.turbine.test
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.navigation.CallDetailRoute
+import com.dd.sms.hook.navigation.CallDetailRoute
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
 import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.calllog.domain.usecase.DeleteCallLogUseCase

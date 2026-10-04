@@ -1,7 +1,7 @@
 package com.dd.sms.hook.features.apiconfig.data.local
 
-import com.dd.sms.hook.core.serialization.AppJson
-import com.dd.sms.hook.core.serialization.NameValueDto
+import com.dd.sms.hook.shared.data.serialization.AppJson
+import com.dd.sms.hook.shared.data.serialization.NameValueDto
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig
 import com.dd.sms.hook.features.apiconfig.domain.model.HeaderEntry
 import com.dd.sms.hook.features.apiconfig.domain.model.HttpMethod

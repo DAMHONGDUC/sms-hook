@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dashboard.domain.service
 
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.calllog.domain.model.CallPoint
 import com.dd.sms.hook.features.calllog.domain.model.DailyCallCount
 import java.time.LocalDate

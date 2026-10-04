@@ -30,11 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.constants.HttpConstants
-import com.dd.sms.hook.core.theme.CodeFontFamily
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.ui.SectionCard
-import com.dd.sms.hook.core.ui.SwitchRow
+import com.dd.sms.hook.shared.domain.constants.HttpConstants
+import com.dd.sms.hook.shared.presentation.theme.CodeFontFamily
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.ui.SectionCard
+import com.dd.sms.hook.shared.presentation.ui.SwitchRow
 import com.dd.sms.hook.features.apiconfig.domain.model.HeaderEntry
 import com.dd.sms.hook.features.apiconfig.domain.model.HttpMethod
 import com.dd.sms.hook.features.apiconfig.domain.model.MatchMode

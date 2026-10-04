@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dashboard
 
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
 import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.dashboard.domain.model.DashboardData

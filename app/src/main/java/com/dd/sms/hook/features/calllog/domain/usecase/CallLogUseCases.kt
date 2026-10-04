@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.calllog.domain.usecase
 
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallLogFilter
 import com.dd.sms.hook.features.calllog.domain.repository.CallLogRepository

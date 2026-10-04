@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dispatch.domain.usecase
 
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig
 import com.dd.sms.hook.features.apiconfig.domain.repository.ApiConfigRepository
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus

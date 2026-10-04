@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.dd.sms.hook.core.navigation.AppRoot
-import com.dd.sms.hook.core.theme.AppTheme
+import com.dd.sms.hook.navigation.AppRoot
+import com.dd.sms.hook.shared.presentation.theme.AppTheme
 import com.dd.sms.hook.features.settings.domain.model.AppSettings
 import com.dd.sms.hook.features.settings.domain.model.ThemeMode
 import dagger.hilt.android.AndroidEntryPoint

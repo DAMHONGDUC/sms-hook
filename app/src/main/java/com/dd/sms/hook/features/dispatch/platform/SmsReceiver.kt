@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Telephony
 import android.telephony.SmsMessage
-import com.dd.sms.hook.core.constants.SmsConstants
-import com.dd.sms.hook.core.di.ApplicationScope
-import com.dd.sms.hook.core.logging.AppLogger
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.constants.SmsConstants
+import com.dd.sms.hook.shared.data.di.ApplicationScope
+import com.dd.sms.hook.shared.domain.logging.AppLogger
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.dispatch.domain.usecase.HandleIncomingSmsUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope

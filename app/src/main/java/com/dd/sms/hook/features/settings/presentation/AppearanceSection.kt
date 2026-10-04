@@ -34,11 +34,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.locale.AppLanguage
-import com.dd.sms.hook.core.locale.LocaleController
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.theme.ThemeSupport
-import com.dd.sms.hook.core.ui.SectionCard
+import com.dd.sms.hook.shared.presentation.locale.AppLanguage
+import com.dd.sms.hook.shared.presentation.locale.LocaleController
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.theme.ThemeSupport
+import com.dd.sms.hook.shared.presentation.ui.SectionCard
 import com.dd.sms.hook.features.settings.domain.model.AppSettings
 import com.dd.sms.hook.features.settings.domain.model.ThemeMode
 

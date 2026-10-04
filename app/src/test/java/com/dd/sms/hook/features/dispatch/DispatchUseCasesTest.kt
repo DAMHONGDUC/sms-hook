@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dispatch
 
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfigDefaults
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus

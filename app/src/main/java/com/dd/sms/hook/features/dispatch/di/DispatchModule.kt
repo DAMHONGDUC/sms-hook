@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dispatch.di
 
-import com.dd.sms.hook.core.db.AppDatabase
+import com.dd.sms.hook.shared.data.db.AppDatabase
 import com.dd.sms.hook.features.dispatch.data.local.ReceivedSmsDao
 import com.dd.sms.hook.features.dispatch.data.remote.OkHttpExecutor
 import com.dd.sms.hook.features.dispatch.data.repository.ReceivedSmsRepositoryImpl

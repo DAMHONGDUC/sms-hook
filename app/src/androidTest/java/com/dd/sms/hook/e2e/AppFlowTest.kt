@@ -7,7 +7,7 @@ import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.work.WorkInfo
 import com.dd.sms.hook.MainActivity
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfigDefaults
 import com.dd.sms.hook.features.apiconfig.domain.repository.ApiConfigRepository

@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.calllog.di
 
-import com.dd.sms.hook.core.db.AppDatabase
+import com.dd.sms.hook.shared.data.db.AppDatabase
 import com.dd.sms.hook.features.calllog.data.local.CallLogDao
 import com.dd.sms.hook.features.calllog.data.repository.CallLogRepositoryImpl
 import com.dd.sms.hook.features.calllog.domain.repository.CallLogRepository

@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dashboard.domain.usecase
 
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.domain.repository.ApiConfigRepository
 import com.dd.sms.hook.features.calllog.domain.model.ApiCallBreakdown
 import com.dd.sms.hook.features.calllog.domain.model.CallLog

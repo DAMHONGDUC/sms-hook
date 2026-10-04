@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dispatch.domain.service
 
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.apiconfig.domain.model.MatchMode
 import com.dd.sms.hook.features.apiconfig.domain.model.SmsFilter
 import javax.inject.Inject

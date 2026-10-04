@@ -36,10 +36,10 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.AppThemeExtras
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.time.TimeUtils
-import com.dd.sms.hook.core.ui.currentLocale
+import com.dd.sms.hook.shared.presentation.theme.AppThemeExtras
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.domain.time.TimeUtils
+import com.dd.sms.hook.shared.presentation.ui.currentLocale
 import com.dd.sms.hook.features.calllog.domain.model.DailyCallCount
 import java.util.Locale
 

@@ -1,7 +1,7 @@
 package com.dd.sms.hook.features.settings
 
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import com.dd.sms.hook.features.settings.data.SettingsRepositoryImpl
+import com.dd.sms.hook.features.settings.data.repository.SettingsRepositoryImpl
 import com.dd.sms.hook.features.settings.domain.model.AppSettings
 import com.dd.sms.hook.features.settings.domain.model.RetentionPeriod
 import com.dd.sms.hook.features.settings.domain.model.ThemeMode

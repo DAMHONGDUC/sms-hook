@@ -27,11 +27,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.res.stringResource
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.AppThemeExtras
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.theme.tabularNumbers
-import com.dd.sms.hook.core.ui.IconBadge
-import com.dd.sms.hook.core.ui.SectionCard
+import com.dd.sms.hook.shared.presentation.theme.AppThemeExtras
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.theme.tabularNumbers
+import com.dd.sms.hook.shared.presentation.ui.IconBadge
+import com.dd.sms.hook.shared.presentation.ui.SectionCard
 
 /** One onboarding step: done, or the single action that completes it. */
 data class SetupStep(

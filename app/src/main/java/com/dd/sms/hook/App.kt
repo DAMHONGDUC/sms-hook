@@ -3,7 +3,7 @@ package com.dd.sms.hook
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.dd.sms.hook.core.bootstrap.AppBootstrap
+import com.dd.sms.hook.bootstrap.AppBootstrap
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 

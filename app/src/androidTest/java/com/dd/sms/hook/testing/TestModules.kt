@@ -7,10 +7,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
 import androidx.work.WorkManager
-import com.dd.sms.hook.core.db.AppDatabase
-import com.dd.sms.hook.core.di.ApplicationScope
-import com.dd.sms.hook.core.di.CoreModule
-import com.dd.sms.hook.features.settings.data.SettingsRepositoryImpl
+import com.dd.sms.hook.shared.data.db.AppDatabase
+import com.dd.sms.hook.shared.data.di.ApplicationScope
+import com.dd.sms.hook.shared.data.di.CoreModule
+import com.dd.sms.hook.features.settings.data.repository.SettingsRepositoryImpl
 import com.dd.sms.hook.features.settings.di.SettingsModule
 import com.dd.sms.hook.features.settings.domain.repository.SettingsRepository
 import dagger.Binds

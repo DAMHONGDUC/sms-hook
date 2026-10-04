@@ -2,7 +2,7 @@ package com.dd.sms.hook.features.settings.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dispatch.domain.service.KeepAliveController
 import com.dd.sms.hook.features.settings.domain.model.AppSettings
 import com.dd.sms.hook.features.settings.domain.model.RetentionPeriod

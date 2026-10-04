@@ -1,7 +1,7 @@
 package com.dd.sms.hook.features.dispatch.data.remote
 
-import com.dd.sms.hook.core.constants.HttpConstants
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.constants.HttpConstants
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dispatch.domain.model.HttpRequestSpec
 import com.dd.sms.hook.features.dispatch.domain.model.HttpResult
 import com.dd.sms.hook.features.dispatch.domain.service.HttpExecutor

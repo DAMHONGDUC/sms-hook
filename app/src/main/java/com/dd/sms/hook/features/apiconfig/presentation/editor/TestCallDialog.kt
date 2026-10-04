@@ -31,12 +31,12 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.AppThemeExtras
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.ui.CodeBlock
-import com.dd.sms.hook.core.ui.IconBadge
-import com.dd.sms.hook.core.ui.UiFormat
-import com.dd.sms.hook.core.ui.rememberCopyAction
+import com.dd.sms.hook.shared.presentation.theme.AppThemeExtras
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.ui.CodeBlock
+import com.dd.sms.hook.shared.presentation.ui.IconBadge
+import com.dd.sms.hook.shared.presentation.ui.UiFormat
+import com.dd.sms.hook.shared.presentation.ui.rememberCopyAction
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
 

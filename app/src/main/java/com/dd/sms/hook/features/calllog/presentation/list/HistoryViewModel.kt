@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.logging.AppLogger
-import com.dd.sms.hook.core.navigation.HistoryRoute
-import com.dd.sms.hook.core.time.TimeUtils
-import com.dd.sms.hook.core.ui.UiMessage
+import com.dd.sms.hook.shared.domain.logging.AppLogger
+import com.dd.sms.hook.navigation.HistoryRoute
+import com.dd.sms.hook.shared.domain.time.TimeUtils
+import com.dd.sms.hook.shared.presentation.ui.UiMessage
 import com.dd.sms.hook.features.apiconfig.domain.model.ApiConfig
 import com.dd.sms.hook.features.apiconfig.domain.usecase.ObserveApiConfigsUseCase
 import com.dd.sms.hook.features.calllog.domain.model.CallLog

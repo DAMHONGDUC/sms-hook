@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.dispatch
 
-import com.dd.sms.hook.core.constants.HttpConstants
+import com.dd.sms.hook.shared.domain.constants.HttpConstants
 import com.dd.sms.hook.features.apiconfig.domain.model.HeaderEntry
 import com.dd.sms.hook.features.apiconfig.domain.model.HttpMethod
 import com.dd.sms.hook.features.dispatch.domain.model.HttpRequestSpec

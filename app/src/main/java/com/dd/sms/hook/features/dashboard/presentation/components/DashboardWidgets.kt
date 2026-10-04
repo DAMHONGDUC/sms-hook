@@ -24,11 +24,11 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.theme.AppThemeExtras
-import com.dd.sms.hook.core.theme.Dimens
-import com.dd.sms.hook.core.theme.tabularNumbers
-import com.dd.sms.hook.core.ui.AppCardDefaults
-import com.dd.sms.hook.core.ui.IconBadge
+import com.dd.sms.hook.shared.presentation.theme.AppThemeExtras
+import com.dd.sms.hook.shared.presentation.theme.Dimens
+import com.dd.sms.hook.shared.presentation.theme.tabularNumbers
+import com.dd.sms.hook.shared.presentation.ui.AppCardDefaults
+import com.dd.sms.hook.shared.presentation.ui.IconBadge
 import com.dd.sms.hook.features.calllog.domain.model.ApiCallBreakdown
 
 private val SEGMENT_GAP = 2.dp

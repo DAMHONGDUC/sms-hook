@@ -2,8 +2,8 @@ package com.dd.sms.hook.features.calllog
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.testing.invoke
-import com.dd.sms.hook.core.navigation.HistoryRoute
-import com.dd.sms.hook.core.time.TimeUtils
+import com.dd.sms.hook.navigation.HistoryRoute
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.domain.usecase.ObserveApiConfigsUseCase
 import com.dd.sms.hook.features.calllog.domain.model.CallLogFilter
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus

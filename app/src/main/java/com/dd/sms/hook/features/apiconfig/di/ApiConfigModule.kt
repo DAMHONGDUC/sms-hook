@@ -1,6 +1,6 @@
 package com.dd.sms.hook.features.apiconfig.di
 
-import com.dd.sms.hook.core.db.AppDatabase
+import com.dd.sms.hook.shared.data.db.AppDatabase
 import com.dd.sms.hook.features.apiconfig.data.local.ApiConfigDao
 import com.dd.sms.hook.features.apiconfig.data.repository.ApiConfigRepositoryImpl
 import com.dd.sms.hook.features.apiconfig.domain.repository.ApiConfigRepository

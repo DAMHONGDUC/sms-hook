@@ -2,7 +2,7 @@ package com.dd.sms.hook.features.dashboard.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dashboard.domain.model.DashboardData
 import com.dd.sms.hook.features.dashboard.domain.model.DashboardRange
 import com.dd.sms.hook.features.dashboard.domain.usecase.ObserveDashboardUseCase

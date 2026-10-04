@@ -3,7 +3,7 @@ package com.dd.sms.hook.features.dispatch.platform
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.dispatch.domain.service.KeepAliveController
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject

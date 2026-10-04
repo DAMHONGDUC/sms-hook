@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.work.ForegroundInfo
 import com.dd.sms.hook.MainActivity
 import com.dd.sms.hook.R
-import com.dd.sms.hook.core.constants.NotificationConstants
-import com.dd.sms.hook.core.logging.AppLogger
+import com.dd.sms.hook.shared.domain.constants.NotificationConstants
+import com.dd.sms.hook.shared.domain.logging.AppLogger
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.dispatch.domain.service.FailureNotifier
 import dagger.hilt.android.qualifiers.ApplicationContext

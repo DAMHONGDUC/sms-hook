@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.dd.sms.hook.core.db.AppDatabase
+import com.dd.sms.hook.shared.data.db.AppDatabase
 import com.dd.sms.hook.features.apiconfig.data.local.ApiConfigDao
 import com.dd.sms.hook.features.apiconfig.data.local.ApiConfigEntity
 import com.dd.sms.hook.features.calllog.data.local.CallLogDao
