@@ -220,4 +220,24 @@
         <item quantity="one">Peak %1$d call/day · tap a bar for details</item>
         <item quantity="other">Peak %1$d calls/day · tap a bar for details</item>
     </plurals>
+    <string name="history_tab_sent">Sent</string>
+    <string name="history_tab_queue">Queue</string>
+    <string name="queue_notice">These calls are sent automatically as soon as possible. Nothing to do here.</string>
+    <string name="queue_state_running">Sending now</string>
+    <string name="queue_state_waiting">Waiting to send</string>
+    <string name="queue_retry_at">Retry at %1$s</string>
+    <string name="queue_unknown_api">Unknown API</string>
+    <string name="queue_empty_title">Queue is empty</string>
+    <string name="queue_empty_message">Calls wait here while there is no network or a retry is scheduled.</string>
+    <string name="history_retry_failed_action">Retry all</string>
+    <string name="history_retry_failed_confirm_title">Retry failed calls?</string>
+    <string name="history_retry_failed_queued">Failed calls added to the queue</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="one">%1$d failed call</item>
+        <item quantity="other">%1$d failed calls</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="one">%1$d failed call to %2$s will be sent again.</item>
+        <item quantity="other">%1$d failed calls to %2$s will be sent again.</item>
+    </plurals>
 </resources>

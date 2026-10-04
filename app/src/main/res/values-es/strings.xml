@@ -223,4 +223,26 @@
         <item quantity="many">Máximo %1$d llamadas/día · toca una barra</item>
         <item quantity="other">Máximo %1$d llamadas/día · toca una barra</item>
     </plurals>
+    <string name="history_tab_sent">Enviadas</string>
+    <string name="history_tab_queue">En cola</string>
+    <string name="queue_notice">Estas llamadas se envían automáticamente lo antes posible. No tienes que hacer nada.</string>
+    <string name="queue_state_running">Enviando</string>
+    <string name="queue_state_waiting">Esperando envío</string>
+    <string name="queue_retry_at">Reintento a las %1$s</string>
+    <string name="queue_unknown_api">API desconocida</string>
+    <string name="queue_empty_title">La cola está vacía</string>
+    <string name="queue_empty_message">Las llamadas esperan aquí mientras no hay red o hay un reintento programado.</string>
+    <string name="history_retry_failed_action">Reintentar todas</string>
+    <string name="history_retry_failed_confirm_title">¿Reintentar llamadas fallidas?</string>
+    <string name="history_retry_failed_queued">Llamadas fallidas añadidas a la cola</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="one">%1$d llamada fallida</item>
+        <item quantity="many">%1$d llamadas fallidas</item>
+        <item quantity="other">%1$d llamadas fallidas</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="one">Se volverá a enviar %1$d llamada fallida a %2$s.</item>
+        <item quantity="many">Se volverán a enviar %1$d llamadas fallidas a %2$s.</item>
+        <item quantity="other">Se volverán a enviar %1$d llamadas fallidas a %2$s.</item>
+    </plurals>
 </resources>

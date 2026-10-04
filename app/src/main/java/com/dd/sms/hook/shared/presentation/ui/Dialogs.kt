@@ -15,6 +15,7 @@ fun ConfirmDialog(
     confirmLabel: String,
     onConfirm: () -> Unit,
     onDismiss: () -> Unit,
+    destructive: Boolean = true,
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -25,7 +26,11 @@ fun ConfirmDialog(
                 onConfirm()
                 onDismiss()
             }) {
-                Text(text = confirmLabel, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.error)
+                Text(
+                    text = confirmLabel,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = if (destructive) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                )
             }
         },
         dismissButton = {

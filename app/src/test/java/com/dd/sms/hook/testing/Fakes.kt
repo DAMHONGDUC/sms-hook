@@ -12,6 +12,7 @@ import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.calllog.domain.repository.CallLogRepository
 import com.dd.sms.hook.features.dispatch.domain.model.HttpRequestSpec
 import com.dd.sms.hook.features.dispatch.domain.model.HttpResult
+import com.dd.sms.hook.features.dispatch.domain.model.QueuedCall
 import com.dd.sms.hook.features.dispatch.domain.model.ReceivedSms
 import com.dd.sms.hook.features.dispatch.domain.repository.ReceivedSmsRepository
 import com.dd.sms.hook.features.dispatch.domain.service.CallScheduler
@@ -71,6 +72,15 @@ class FakeCallLogRepository(initial: List<CallLog> = emptyList()) : CallLogRepos
     override fun observeById(id: Long): Flow<CallLog?> = logs.map { list -> list.firstOrNull { it.id == id } }
     override fun observeAttempts(smsId: Long, configId: Long): Flow<List<CallLog>> =
         logs.map { list -> list.filter { it.smsId == smsId && it.configId == configId }.sortedBy { it.createdAt } }
+    override fun observeFailedSmsIds(configId: Long): Flow<List<Long>> = logs.map { list ->
+        list.filter { it.configId == configId && it.smsId != null && it.trigger != CallTrigger.TEST }
+            .groupBy { it.smsId!! }
+            .mapValues { (_, attempts) -> attempts.maxBy { it.id } }
+            .values.filter { it.status == CallStatus.FAILED }
+            .sortedBy { it.id }
+            .map { it.smsId!! }
+    }
+
     override fun observeHasSuccess(): Flow<Boolean> =
         logs.map { list -> list.any { it.status == CallStatus.SUCCESS && it.trigger != CallTrigger.TEST } }
     override suspend fun getById(id: Long): CallLog? = logs.value.firstOrNull { it.id == id }
@@ -148,10 +158,13 @@ class FakeSettingsRepository(initial: AppSettings = AppSettings.DEFAULT) : Setti
 /** Records every enqueue instead of touching WorkManager. */
 class FakeCallScheduler : CallScheduler {
     val enqueued: MutableList<Triple<Long, Long, CallTrigger>> = mutableListOf()
+    val queue: MutableStateFlow<List<QueuedCall>> = MutableStateFlow(emptyList())
 
     override fun enqueue(configId: Long, smsId: Long, trigger: CallTrigger) {
         enqueued += Triple(configId, smsId, trigger)
     }
+
+    override fun observeQueue(): Flow<List<QueuedCall>> = queue
 }
 
 /** Answers with [result] and remembers the last request. */

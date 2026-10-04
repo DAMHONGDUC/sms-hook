@@ -3,6 +3,7 @@ package com.dd.sms.hook.features.dispatch.domain.model
 import com.dd.sms.hook.features.apiconfig.domain.model.HeaderEntry
 import com.dd.sms.hook.features.apiconfig.domain.model.HttpMethod
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
+import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 
 /** An SMS as received by the device; multipart messages are already joined. */
 data class ReceivedSms(
@@ -44,3 +45,24 @@ sealed interface DispatchOutcome {
     /** Nothing was sent, e.g. the config was deleted or disabled after the SMS was queued. */
     data class Skipped(val reason: String) : DispatchOutcome
 }
+
+enum class QueueState { WAITING, RUNNING }
+
+/** A call still in the delivery queue. Ids are null for jobs queued before they were tagged. */
+data class QueuedCall(
+    val workId: String,
+    val configId: Long?,
+    val smsId: Long?,
+    val trigger: CallTrigger,
+    val state: QueueState,
+    val attempt: Int,
+    /** Earliest run time while waiting for a backoff; null when it only waits for its turn or network. */
+    val nextRunAt: Long?,
+)
+
+/** A queued call joined with the config and SMS it will send, for display. */
+data class QueuedCallItem(
+    val call: QueuedCall,
+    val configName: String?,
+    val sms: ReceivedSms?,
+)

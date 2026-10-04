@@ -2,24 +2,30 @@ package com.dd.sms.hook.features.calllog
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.testing.invoke
-import com.dd.sms.hook.navigation.HistoryRoute
-import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.features.apiconfig.domain.usecase.ObserveApiConfigsUseCase
 import com.dd.sms.hook.features.calllog.domain.model.CallLogFilter
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
+import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.calllog.domain.usecase.ClearCallLogsUseCase
 import com.dd.sms.hook.features.calllog.domain.usecase.ObserveCallLogsUseCase
 import com.dd.sms.hook.features.calllog.presentation.list.HistoryState
 import com.dd.sms.hook.features.calllog.presentation.list.HistoryViewModel
+import com.dd.sms.hook.features.dispatch.domain.usecase.ObserveCallQueueUseCase
+import com.dd.sms.hook.features.dispatch.domain.usecase.ObserveRetryableFailuresUseCase
+import com.dd.sms.hook.features.dispatch.domain.usecase.RetryFailedCallsUseCase
+import com.dd.sms.hook.navigation.HistoryRoute
+import com.dd.sms.hook.shared.domain.time.TimeUtils
 import com.dd.sms.hook.testing.FakeApiConfigRepository
 import com.dd.sms.hook.testing.FakeCallLogRepository
+import com.dd.sms.hook.testing.FakeCallScheduler
+import com.dd.sms.hook.testing.FakeReceivedSmsRepository
 import com.dd.sms.hook.testing.Fixtures
 import com.dd.sms.hook.testing.MainDispatcherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -46,12 +52,22 @@ class HistoryViewModelTest {
         )
     )
 
-    private fun viewModel(configId: Long = HistoryRoute.ALL_CONFIGS): HistoryViewModel = HistoryViewModel(
-        SavedStateHandle(route = HistoryRoute(configId)),
-        ObserveCallLogsUseCase(logs),
-        ObserveApiConfigsUseCase(FakeApiConfigRepository(listOf(Fixtures.config(id = 1L), Fixtures.config(id = 2L)))),
-        ClearCallLogsUseCase(logs),
-    )
+    private val configs = FakeApiConfigRepository(listOf(Fixtures.config(id = 1L), Fixtures.config(id = 2L).copy(name = "Backup")))
+    private val scheduler = FakeCallScheduler()
+
+    private fun viewModel(configId: Long = HistoryRoute.ALL_CONFIGS): HistoryViewModel {
+        val observeFailures = ObserveRetryableFailuresUseCase(logs, scheduler)
+
+        return HistoryViewModel(
+            SavedStateHandle(route = HistoryRoute(configId)),
+            ObserveCallLogsUseCase(logs),
+            ObserveApiConfigsUseCase(configs),
+            ObserveCallQueueUseCase(scheduler, configs, FakeReceivedSmsRepository()),
+            observeFailures,
+            ClearCallLogsUseCase(logs),
+            RetryFailedCallsUseCase(observeFailures, configs, scheduler),
+        )
+    }
 
     private fun TestScope.loaded(vm: HistoryViewModel): HistoryState.Loaded {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect { } }
@@ -97,5 +113,28 @@ class HistoryViewModelTest {
         vm.onClearAll()
 
         assertTrue(loaded(vm).isEmpty)
+    }
+
+    @Test
+    fun `queue follows the selected api`() = runTest {
+        scheduler.queue.value = listOf(Fixtures.queued(configId = 1L), Fixtures.queued(configId = 2L))
+        val vm: HistoryViewModel = viewModel()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.queue.collect { } }
+
+        assertEquals(2, vm.queue.value.size)
+        vm.onApiFilter(2L)
+        assertEquals(listOf("Backup"), vm.queue.value.map { it.configName })
+    }
+
+    @Test
+    fun `retry all is offered only for one api and queues its failures`() = runTest {
+        val vm: HistoryViewModel = viewModel()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.retryableFailures.collect { } }
+
+        assertEquals(0, vm.retryableFailures.value)
+        vm.onApiFilter(2L)
+        assertEquals(1, vm.retryableFailures.value)
+        vm.onRetryAllFailed()
+        assertEquals(listOf(Triple(2L, 3L, CallTrigger.RETRY)), scheduler.enqueued)
     }
 }

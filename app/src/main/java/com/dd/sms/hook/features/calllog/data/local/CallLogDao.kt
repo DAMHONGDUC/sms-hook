@@ -23,6 +23,19 @@ interface CallLogDao {
     @Query("SELECT EXISTS(SELECT 1 FROM call_logs WHERE status = :successStatus AND `trigger` != :excludedTrigger)")
     fun observeHasSuccess(successStatus: String, excludedTrigger: String): Flow<Boolean>
 
+    /** Ids grow with every insert, so MAX(id) is the latest attempt of an SMS for this API. */
+    @Query(
+        """
+        SELECT c.sms_id FROM call_logs c
+        WHERE c.config_id = :configId AND c.sms_id IS NOT NULL AND c.`trigger` != :excludedTrigger
+          AND c.status = :failedStatus
+          AND c.id = (SELECT MAX(l.id) FROM call_logs l
+                      WHERE l.config_id = c.config_id AND l.sms_id = c.sms_id AND l.`trigger` != :excludedTrigger)
+        ORDER BY c.id ASC
+        """
+    )
+    fun observeFailedSmsIds(configId: Long, failedStatus: String, excludedTrigger: String): Flow<List<Long>>
+
     @Query("SELECT * FROM call_logs WHERE sms_id = :smsId AND config_id = :configId ORDER BY created_at ASC")
     fun observeAttempts(smsId: Long, configId: Long): Flow<List<CallLogEntity>>
 

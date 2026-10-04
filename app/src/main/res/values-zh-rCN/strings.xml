@@ -215,4 +215,22 @@
     <plurals name="chart_max">
         <item quantity="other">峰值 %1$d 次/天 · 点按柱形查看详情</item>
     </plurals>
+    <string name="history_tab_sent">已发送</string>
+    <string name="history_tab_queue">队列</string>
+    <string name="queue_notice">这些调用会尽快自动发送，无需任何操作。</string>
+    <string name="queue_state_running">正在发送</string>
+    <string name="queue_state_waiting">等待发送</string>
+    <string name="queue_retry_at">将于 %1$s 重试</string>
+    <string name="queue_unknown_api">未知 API</string>
+    <string name="queue_empty_title">队列为空</string>
+    <string name="queue_empty_message">无网络或等待重试时，调用会在此等待。</string>
+    <string name="history_retry_failed_action">全部重试</string>
+    <string name="history_retry_failed_confirm_title">重试失败的调用？</string>
+    <string name="history_retry_failed_queued">失败的调用已加入队列</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="other">%1$d 次失败调用</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="other">将重新发送 %1$d 次发往 %2$s 的失败调用。</item>
+    </plurals>
 </resources>

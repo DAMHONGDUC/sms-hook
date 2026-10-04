@@ -68,6 +68,20 @@ class DaoTest {
     )
 
     @Test
+    fun callLogs_failedSmsIdsUseLatestRealAttemptPerSms() = runTest {
+        logs.insert(log(configId = 1L, smsId = 10L, status = FAILED))
+        logs.insert(log(configId = 1L, smsId = 10L, status = SUCCESS))
+        logs.insert(log(configId = 1L, smsId = 11L, status = SUCCESS))
+        logs.insert(log(configId = 1L, smsId = 11L, status = FAILED))
+        logs.insert(log(configId = 1L, smsId = 12L, status = FAILED))
+        logs.insert(log(configId = 1L, smsId = 12L, status = SUCCESS, trigger = TEST))
+        logs.insert(log(configId = 1L, smsId = null, status = FAILED))
+        logs.insert(log(configId = 2L, smsId = 13L, status = FAILED))
+
+        assertEquals(listOf(11L, 12L), logs.observeFailedSmsIds(1L, FAILED, TEST).first())
+    }
+
+    @Test
     fun apiConfigs_orderEnabledCountToggleDelete() = runTest {
         val a: Long = configs.insert(config("A", createdAt = 1L))
         val b: Long = configs.insert(config("B", enabled = false, createdAt = 2L))

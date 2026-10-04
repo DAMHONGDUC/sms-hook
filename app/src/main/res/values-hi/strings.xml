@@ -219,4 +219,24 @@
         <item quantity="one">अधिकतम %1$d कॉल/दिन · विवरण के लिए बार पर टैप करें</item>
         <item quantity="other">अधिकतम %1$d कॉल/दिन · विवरण के लिए बार पर टैप करें</item>
     </plurals>
+    <string name="history_tab_sent">भेजी गईं</string>
+    <string name="history_tab_queue">कतार</string>
+    <string name="queue_notice">ये कॉल जल्द से जल्द अपने आप भेजी जाएँगी। आपको कुछ करने की ज़रूरत नहीं है।</string>
+    <string name="queue_state_running">भेजी जा रही है</string>
+    <string name="queue_state_waiting">भेजे जाने की प्रतीक्षा</string>
+    <string name="queue_retry_at">%1$s पर पुनः प्रयास</string>
+    <string name="queue_unknown_api">अज्ञात API</string>
+    <string name="queue_empty_title">कतार खाली है</string>
+    <string name="queue_empty_message">नेटवर्क न होने या पुनः प्रयास तय होने पर कॉल यहाँ प्रतीक्षा करती हैं।</string>
+    <string name="history_retry_failed_action">सभी पुनः प्रयास करें</string>
+    <string name="history_retry_failed_confirm_title">विफल कॉल पुनः भेजें?</string>
+    <string name="history_retry_failed_queued">विफल कॉल कतार में जोड़ी गईं</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="one">%1$d विफल कॉल</item>
+        <item quantity="other">%1$d विफल कॉल</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="one">%2$s को %1$d विफल कॉल फिर से भेजी जाएगी।</item>
+        <item quantity="other">%2$s को %1$d विफल कॉल फिर से भेजी जाएँगी।</item>
+    </plurals>
 </resources>

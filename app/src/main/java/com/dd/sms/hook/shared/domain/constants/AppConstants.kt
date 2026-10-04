@@ -14,6 +14,10 @@ object WorkConstants {
     const val KEY_CONFIG_ID = "config_id"
     const val KEY_SMS_ID = "sms_id"
     const val KEY_TRIGGER = "trigger"
+    /** Tag prefixes so the queue can be read back: WorkInfo exposes tags but not input data. */
+    const val TAG_PREFIX_CONFIG = "config:"
+    const val TAG_PREFIX_SMS = "sms:"
+    const val TAG_PREFIX_TRIGGER = "trigger:"
     const val BACKOFF_SECONDS = 15L
     const val CLEANUP_INTERVAL_HOURS = 24L
 }

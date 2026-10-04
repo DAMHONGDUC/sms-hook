@@ -30,6 +30,9 @@ class CallLogRepositoryImpl @Inject constructor(
     override fun observeAttempts(smsId: Long, configId: Long): Flow<List<CallLog>> =
         dao.observeAttempts(smsId, configId).map { list -> list.map(CallLogMapper::toDomain) }
 
+    override fun observeFailedSmsIds(configId: Long): Flow<List<Long>> =
+        dao.observeFailedSmsIds(configId, CallStatus.FAILED.name, excluded)
+
     override fun observeHasSuccess(): Flow<Boolean> = dao.observeHasSuccess(success, excluded)
 
     override suspend fun getById(id: Long): CallLog? = dao.getById(id)?.let(CallLogMapper::toDomain)

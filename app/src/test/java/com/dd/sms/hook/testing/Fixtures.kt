@@ -7,6 +7,8 @@ import com.dd.sms.hook.features.apiconfig.domain.model.SmsFilter
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
 import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
+import com.dd.sms.hook.features.dispatch.domain.model.QueueState
+import com.dd.sms.hook.features.dispatch.domain.model.QueuedCall
 import com.dd.sms.hook.features.dispatch.domain.model.ReceivedSms
 
 /** Shared builders for unit tests. */
@@ -31,6 +33,22 @@ object Fixtures {
 
     fun sms(id: Long = 3L, sender: String = "+84 901 234 567", body: String = "Your OTP is 123456"): ReceivedSms =
         ReceivedSms(id, sender, body, RECEIVED_AT, subscriptionId = 1, matchedCount = 0)
+
+    fun queued(
+        configId: Long? = 7L,
+        smsId: Long? = 3L,
+        state: QueueState = QueueState.WAITING,
+        nextRunAt: Long? = null,
+        attempt: Int = 1,
+    ): QueuedCall = QueuedCall(
+        workId = "work-$configId-$smsId",
+        configId = configId,
+        smsId = smsId,
+        trigger = CallTrigger.SMS,
+        state = state,
+        attempt = attempt,
+        nextRunAt = nextRunAt,
+    )
 
     fun log(
         id: Long = 0L,

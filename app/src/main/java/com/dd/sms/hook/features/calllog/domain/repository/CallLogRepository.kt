@@ -15,6 +15,9 @@ interface CallLogRepository {
     /** Every attempt (first call and retries) for one SMS sent to one API, oldest first. */
     fun observeAttempts(smsId: Long, configId: Long): Flow<List<CallLog>>
 
+    /** SMS ids, oldest first, whose latest real (non-test) attempt for this API failed. */
+    fun observeFailedSmsIds(configId: Long): Flow<List<Long>>
+
     /** True once any real (non-test) call has succeeded. */
     fun observeHasSuccess(): Flow<Boolean>
 

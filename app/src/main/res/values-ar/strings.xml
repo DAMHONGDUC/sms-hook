@@ -235,4 +235,32 @@
         <item quantity="many">الذروة %1$d استدعاءً/يوم · انقر على عمود</item>
         <item quantity="other">الذروة %1$d استدعاء/يوم · انقر على عمود</item>
     </plurals>
+    <string name="history_tab_sent">المُرسلة</string>
+    <string name="history_tab_queue">قائمة الانتظار</string>
+    <string name="queue_notice">تُرسل هذه الاستدعاءات تلقائيًا في أقرب وقت ممكن. لا حاجة لأي إجراء.</string>
+    <string name="queue_state_running">جارٍ الإرسال</string>
+    <string name="queue_state_waiting">في انتظار الإرسال</string>
+    <string name="queue_retry_at">إعادة المحاولة في %1$s</string>
+    <string name="queue_unknown_api">واجهة API غير معروفة</string>
+    <string name="queue_empty_title">قائمة الانتظار فارغة</string>
+    <string name="queue_empty_message">تنتظر الاستدعاءات هنا عند عدم توفر الشبكة أو عند جدولة إعادة محاولة.</string>
+    <string name="history_retry_failed_action">إعادة المحاولة للكل</string>
+    <string name="history_retry_failed_confirm_title">إعادة إرسال الاستدعاءات الفاشلة؟</string>
+    <string name="history_retry_failed_queued">أُضيفت الاستدعاءات الفاشلة إلى قائمة الانتظار</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="zero">%1$d استدعاء فاشل</item>
+        <item quantity="one">استدعاء فاشل واحد (%1$d)</item>
+        <item quantity="two">استدعاءان فاشلان (%1$d)</item>
+        <item quantity="few">%1$d استدعاءات فاشلة</item>
+        <item quantity="many">%1$d استدعاءً فاشلًا</item>
+        <item quantity="other">%1$d استدعاء فاشل</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="zero">ستتم إعادة إرسال %1$d استدعاء فاشل إلى %2$s.</item>
+        <item quantity="one">ستتم إعادة إرسال استدعاء فاشل واحد (%1$d) إلى %2$s.</item>
+        <item quantity="two">ستتم إعادة إرسال استدعاءين فاشلين (%1$d) إلى %2$s.</item>
+        <item quantity="few">ستتم إعادة إرسال %1$d استدعاءات فاشلة إلى %2$s.</item>
+        <item quantity="many">ستتم إعادة إرسال %1$d استدعاءً فاشلًا إلى %2$s.</item>
+        <item quantity="other">ستتم إعادة إرسال %1$d استدعاء فاشل إلى %2$s.</item>
+    </plurals>
 </resources>

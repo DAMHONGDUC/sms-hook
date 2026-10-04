@@ -215,4 +215,22 @@
     <plurals name="chart_max">
         <item quantity="other">Cao nhất %1$d lượt/ngày · chạm cột để xem</item>
     </plurals>
+    <string name="history_tab_sent">Đã gửi</string>
+    <string name="history_tab_queue">Hàng đợi</string>
+    <string name="queue_notice">Các lượt gọi này sẽ tự động được gửi sớm nhất có thể. Bạn không cần làm gì.</string>
+    <string name="queue_state_running">Đang gửi</string>
+    <string name="queue_state_waiting">Đang chờ gửi</string>
+    <string name="queue_retry_at">Gửi lại lúc %1$s</string>
+    <string name="queue_unknown_api">API không xác định</string>
+    <string name="queue_empty_title">Hàng đợi trống</string>
+    <string name="queue_empty_message">Lượt gọi sẽ chờ ở đây khi không có mạng hoặc đang chờ gửi lại.</string>
+    <string name="history_retry_failed_action">Gửi lại tất cả</string>
+    <string name="history_retry_failed_confirm_title">Gửi lại các lượt gọi lỗi?</string>
+    <string name="history_retry_failed_queued">Đã đưa các lượt gọi lỗi vào hàng đợi</string>
+    <plurals name="history_retry_failed_count">
+        <item quantity="other">%1$d lượt gọi lỗi</item>
+    </plurals>
+    <plurals name="history_retry_failed_confirm_message">
+        <item quantity="other">%1$d lượt gọi lỗi tới %2$s sẽ được gửi lại.</item>
+    </plurals>
 </resources>
