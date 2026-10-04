@@ -13,7 +13,7 @@
 | Failure notification | Posted when the last attempt fails (setting, default on) | [NotificationHelper.kt](../app/src/main/java/com/dd/sms/hook/features/dispatch/platform/NotificationHelper.kt) |
 | Retention | Daily cleanup of logs and SMS older than 7/30/90 days or never | [LogCleanupWorker.kt](../app/src/main/java/com/dd/sms/hook/features/dispatch/data/work/LogCleanupWorker.kt) |
 | Appearance | Theme System / Light / Dark, optional dynamic color (Android 12+), status-bar icons follow the theme | [AppearanceSection.kt](../app/src/main/java/com/dd/sms/hook/features/settings/presentation/AppearanceSection.kt) |
-| Languages | English, Tiếng Việt, 简体中文, Español, हिन्दी, العربية (RTL); picked in Settings or Android 13+ per-app language settings | [AppLanguage.kt](../app/src/main/java/com/dd/sms/hook/core/locale/AppLanguage.kt) |
+| Languages | English, Tiếng Việt, 简体中文, Español, हिन्दी, العربية (RTL); picked in Settings or Android 13+ per-app language settings | [AppLanguage.kt](../app/src/main/java/com/dd/sms/hook/shared/presentation/locale/AppLanguage.kt) |
 
 ## Template placeholders
 

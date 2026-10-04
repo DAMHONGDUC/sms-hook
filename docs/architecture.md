@@ -7,18 +7,21 @@ flowchart TD
   P[presentation<br/>Screen + ViewModel] --> D[domain<br/>model, repository interface, service, usecase]
   DA[data<br/>entity, dao, repository impl, remote, work] --> D
   PL[platform<br/>receivers, service, notifications] --> D
-  C[core<br/>db, di, navigation, theme, ui, logging] -.shared.-> P
-  C -.shared.-> DA
+  SP[shared/presentation<br/>ui, theme, locale, permission] -.-> P
+  SD[shared/domain<br/>time, constants, logging] -.-> D
+  SDA[shared/data<br/>db, serialization, di] -.-> DA
+  R[root<br/>App, MainActivity, navigation, bootstrap] --> P
 ```
 
 | Layer | Folder | Responsibility | May depend on |
 |---|---|---|---|
-| presentation | `features/<f>/presentation/` | Compose screens, ViewModels (`StateFlow` state, `Channel` one-shot events) | own domain, other features' domain, `core` |
-| domain | `features/<f>/domain/` | Pure Kotlin models, repository interfaces, services, use cases | other features' domain, `core/constants`, `core/time`, `core/logging` |
-| data | `features/<f>/data/` | Room entities/DAOs, repository impls, OkHttp, WorkManager | own domain, `core` |
-| platform | `features/dispatch/platform/` | `SmsReceiver`, `BootReceiver`, `KeepAliveService`, `NotificationHelper` | domain, `core` |
-| di | `features/<f>/di/`, `core/di/` | Hilt modules binding interfaces to impls | all |
-| core | `core/` | Cross-cutting only, no business logic | nothing in `features/` except wiring in `core/db`, `core/navigation`, `core/bootstrap` |
+| presentation | `features/<f>/presentation/` | Compose screens, ViewModels (`StateFlow` state, `Channel` one-shot events) | own domain, other features' domain, `shared/presentation`, `shared/domain` |
+| domain | `features/<f>/domain/` | Pure Kotlin models, repository interfaces, services, use cases | other features' domain, `shared/domain` |
+| data | `features/<f>/data/` | Room entities/DAOs, repository impls, OkHttp, WorkManager | own domain, other features' domain, `shared/domain`, `shared/data` |
+| platform | `features/dispatch/platform/` | `SmsReceiver`, `BootReceiver`, `KeepAliveService`, `NotificationHelper` | domain, `shared/domain`, `shared/data` |
+| di | `features/<f>/di/`, `shared/data/di/` | Hilt modules binding interfaces to impls | all |
+| shared | `shared/{presentation,domain,data}/` | Cross-cutting code with no business owner, split by the layer that uses it | nothing in `features/` except `shared/data/db` listing entities |
+| root | `App.kt`, `MainActivity.kt`, `MainViewModel.kt`, `navigation/`, `bootstrap/` | Wiring that knows every feature | all |
 
 ## Features
 
@@ -72,12 +75,12 @@ sequenceDiagram
 
 | Task | Location |
 |---|---|
-| New screen | `features/<f>/presentation/<screen>/` + route in [Routes.kt](../app/src/main/java/com/dd/sms/hook/core/navigation/Routes.kt) + `composable<>` in [AppRoot.kt](../app/src/main/java/com/dd/sms/hook/core/navigation/AppRoot.kt) |
+| New screen | `features/<f>/presentation/<screen>/` + route in [Routes.kt](../app/src/main/java/com/dd/sms/hook/navigation/Routes.kt) + `composable<>` in [AppRoot.kt](../app/src/main/java/com/dd/sms/hook/navigation/AppRoot.kt) |
 | New use case | `features/<f>/domain/usecase/` (`@Inject constructor`, `operator fun invoke`) |
-| New DB table | Entity + DAO in `features/<f>/data/local/`, register in [AppDatabase.kt](../app/src/main/java/com/dd/sms/hook/core/db/AppDatabase.kt), bump `version`, add migration |
-| New setting | [AppSettings.kt](../app/src/main/java/com/dd/sms/hook/features/settings/domain/model/AppSettings.kt) + key in [SettingsRepositoryImpl.kt](../app/src/main/java/com/dd/sms/hook/features/settings/data/SettingsRepositoryImpl.kt) |
+| New DB table | Entity + DAO in `features/<f>/data/local/`, register in [AppDatabase.kt](../app/src/main/java/com/dd/sms/hook/shared/data/db/AppDatabase.kt), bump `version`, add migration |
+| New setting | [AppSettings.kt](../app/src/main/java/com/dd/sms/hook/features/settings/domain/model/AppSettings.kt) + key in [SettingsRepositoryImpl.kt](../app/src/main/java/com/dd/sms/hook/features/settings/data/repository/SettingsRepositoryImpl.kt) |
 | New placeholder | [TemplateRenderer.kt](../app/src/main/java/com/dd/sms/hook/features/dispatch/domain/service/TemplateRenderer.kt) `TemplateVariables` + [RequestFactory.kt](../app/src/main/java/com/dd/sms/hook/features/dispatch/domain/service/RequestFactory.kt) + description string |
-| New constant | [AppConstants.kt](../app/src/main/java/com/dd/sms/hook/core/constants/AppConstants.kt) (cross-feature) or the feature's own file |
-| New spacing / colour | [Dimens.kt](../app/src/main/java/com/dd/sms/hook/core/theme/Dimens.kt) / [Color.kt](../app/src/main/java/com/dd/sms/hook/core/theme/Color.kt) |
+| New constant | [AppConstants.kt](../app/src/main/java/com/dd/sms/hook/shared/domain/constants/AppConstants.kt) (cross-feature) or the feature's own file |
+| New spacing / colour | [Dimens.kt](../app/src/main/java/com/dd/sms/hook/shared/presentation/theme/Dimens.kt) / [Color.kt](../app/src/main/java/com/dd/sms/hook/shared/presentation/theme/Color.kt) |
 | New string | Every `values*/strings.xml`: `values`, `values-vi`, `values-zh-rCN`, `values-es`, `values-hi`, `values-ar` |
-| New language | `values-<tag>/strings.xml` + entry in [AppLanguage.kt](../app/src/main/java/com/dd/sms/hook/core/locale/AppLanguage.kt) |
+| New language | `values-<tag>/strings.xml` + entry in [AppLanguage.kt](../app/src/main/java/com/dd/sms/hook/shared/presentation/locale/AppLanguage.kt) |
