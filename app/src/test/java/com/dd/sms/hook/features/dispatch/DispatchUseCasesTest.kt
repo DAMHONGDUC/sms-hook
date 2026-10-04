@@ -84,7 +84,7 @@ class DispatchUseCasesTest {
     @Test
     fun `retry queues the same config and sms`() = runTest {
         val scheduler = FakeCallScheduler()
-        val repo = FakeCallLogRepository(listOf(Fixtures.log(id = 1L, configId = 7L, smsId = 3L)))
+        val repo = FakeCallLogRepository(listOf(Fixtures.log(id = 1L, configId = 7L, smsId = 3L, status = CallStatus.FAILED)))
 
         val result: RetryResult = RetryCallUseCase(repo, FakeApiConfigRepository(listOf(Fixtures.config(id = 7L))), scheduler)(1L)
 
@@ -95,12 +95,28 @@ class DispatchUseCasesTest {
     @Test
     fun `retry is refused for a deleted config or a call without sms`() = runTest {
         val scheduler = FakeCallScheduler()
-        val repo = FakeCallLogRepository(listOf(Fixtures.log(id = 1L), Fixtures.log(id = 2L, smsId = null)))
+        val repo = FakeCallLogRepository(listOf(Fixtures.log(id = 1L, status = CallStatus.FAILED), Fixtures.log(id = 2L, smsId = null, status = CallStatus.FAILED)))
         val retry = RetryCallUseCase(repo, FakeApiConfigRepository(), scheduler)
 
         assertEquals(RetryResult.CONFIG_DELETED, retry(1L))
         assertEquals(RetryResult.NOT_RETRYABLE, retry(2L))
         assertEquals(RetryResult.NOT_RETRYABLE, retry(99L))
+        assertTrue(scheduler.enqueued.isEmpty())
+    }
+
+    @Test
+    fun `retry is refused for a successful call or a test call`() = runTest {
+        val scheduler = FakeCallScheduler()
+        val repo = FakeCallLogRepository(
+            listOf(
+                Fixtures.log(id = 1L, status = CallStatus.SUCCESS),
+                Fixtures.log(id = 2L, status = CallStatus.FAILED, trigger = CallTrigger.TEST),
+            )
+        )
+        val retry = RetryCallUseCase(repo, FakeApiConfigRepository(listOf(Fixtures.config(id = 7L))), scheduler)
+
+        assertEquals(RetryResult.NOT_RETRYABLE, retry(1L))
+        assertEquals(RetryResult.NOT_RETRYABLE, retry(2L))
         assertTrue(scheduler.enqueued.isEmpty())
     }
 

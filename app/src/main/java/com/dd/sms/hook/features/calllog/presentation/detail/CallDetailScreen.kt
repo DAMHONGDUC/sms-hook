@@ -64,7 +64,6 @@ import com.dd.sms.hook.shared.presentation.ui.UiFormat
 import com.dd.sms.hook.shared.presentation.ui.rememberCopyAction
 import com.dd.sms.hook.features.calllog.domain.model.CallLog
 import com.dd.sms.hook.features.calllog.domain.model.CallStatus
-import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
 import com.dd.sms.hook.features.calllog.presentation.components.TriggerPill
 
 private val BOTTOM_BAR_ELEVATION = 3.dp
@@ -203,7 +202,6 @@ private fun CallDetailContent(log: CallLog, attempts: List<CallLog>, modifier: M
 @Composable
 private fun CallActionBar(log: CallLog, onRetry: () -> Unit, onEditApi: (Long) -> Unit) {
     val configId: Long? = log.configId
-    val canRetry: Boolean = log.trigger != CallTrigger.TEST && configId != null && log.smsId != null
 
     if (configId == null) return
     Surface(tonalElevation = BOTTOM_BAR_ELEVATION, shadowElevation = BOTTOM_BAR_ELEVATION) {
@@ -222,7 +220,7 @@ private fun CallActionBar(log: CallLog, onRetry: () -> Unit, onEditApi: (Long) -
                     modifier = Modifier.padding(start = ButtonDefaults.IconSpacing),
                 )
             }
-            if (canRetry) {
+            if (log.canRetry) {
                 Button(onClick = onRetry, modifier = Modifier.weight(1f)) {
                     Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(ButtonDefaults.IconSize))
                     Text(

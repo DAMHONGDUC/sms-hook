@@ -46,8 +46,8 @@ class RetryCallUseCase @Inject constructor(
         val configId: Long? = log?.configId
         val smsId: Long? = log?.smsId
 
-        if (configId == null || smsId == null) {
-            AppLogger.i(TAG, "retry refused - {log: $logId, configId: $configId, smsId: $smsId}")
+        if (log == null || !log.canRetry || configId == null || smsId == null) {
+            AppLogger.i(TAG, "retry refused - {log: $logId, status: ${log?.status}, trigger: ${log?.trigger}, configId: $configId, smsId: $smsId}")
             return RetryResult.NOT_RETRYABLE
         }
         if (configRepository.getById(configId) == null) {

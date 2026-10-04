@@ -27,7 +27,11 @@ data class CallLog(
     val status: CallStatus,
     val trigger: CallTrigger,
     val createdAt: Long,
-)
+) {
+    /** Only a failed real call can be sent again; tests and successes are final. */
+    val canRetry: Boolean
+        get() = status == CallStatus.FAILED && trigger != CallTrigger.TEST && configId != null && smsId != null
+}
 
 data class CallLogFilter(
     val status: CallStatus?,
