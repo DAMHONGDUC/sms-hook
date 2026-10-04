@@ -20,7 +20,6 @@ import androidx.compose.material.icons.filled.FilterAltOff
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -38,6 +37,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.pluralStringResource
@@ -178,14 +178,11 @@ private fun HistoryTabs(selected: HistoryTab, queued: Int, onSelect: (HistoryTab
             selected = selected == HistoryTab.QUEUE,
             onClick = { onSelect(HistoryTab.QUEUE) },
             text = {
-                BadgedBox(
-                    badge = {
-                        if (queued > 0) {
-                            Badge { Text(text = queued.toString(), style = MaterialTheme.typography.labelSmall.tabularNumbers()) }
-                        }
-                    },
-                ) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Dimens.inlineGap), verticalAlignment = Alignment.CenterVertically) {
                     Text(text = stringResource(R.string.history_tab_queue), style = MaterialTheme.typography.labelLarge)
+                    if (queued > 0) {
+                        Badge { Text(text = queued.toString(), style = MaterialTheme.typography.labelSmall.tabularNumbers()) }
+                    }
                 }
             },
         )
@@ -223,7 +220,7 @@ private fun HistoryList(days: List<HistoryDay>, onOpenCall: (Long) -> Unit) {
 
 @Composable
 private fun HistoryFilters(filter: CallLogFilter, apis: List<ApiConfig>, viewModel: HistoryViewModel) {
-    Column(verticalArrangement = Arrangement.spacedBy(Dimens.inlineGap)) {
+    Column(modifier = Modifier.padding(top = Dimens.inlineGap), verticalArrangement = Arrangement.spacedBy(Dimens.inlineGap)) {
         OutlinedTextField(
             value = filter.query,
             onValueChange = viewModel::onQueryChange,

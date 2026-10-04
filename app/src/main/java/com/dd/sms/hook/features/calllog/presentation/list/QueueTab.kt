@@ -27,8 +27,6 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.dd.sms.hook.R
-import com.dd.sms.hook.features.calllog.domain.model.CallTrigger
-import com.dd.sms.hook.features.calllog.presentation.components.TriggerPill
 import com.dd.sms.hook.features.dispatch.domain.model.QueueState
 import com.dd.sms.hook.features.dispatch.domain.model.QueuedCallItem
 import com.dd.sms.hook.shared.domain.time.TimeUtils
@@ -119,7 +117,6 @@ private fun QueueRow(item: QueuedCallItem) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
-        if (item.call.trigger != CallTrigger.SMS) TriggerPill(item.call.trigger)
     }
 }
 
