@@ -115,7 +115,7 @@ app/src/main/java/com/dd/sms/hook/
     │
     ├── calllog/                                    # call history (call_logs)
     │   ├── presentation/
-    │   │   ├── list/         HistoryScreen · HistoryViewModel
+    │   │   ├── list/         HistoryScreen, QueueTab · HistoryViewModel
     │   │   ├── detail/       CallDetailScreen, DeliveryTimeline · CallDetailViewModel
     │   │   └── components/   CallLogRow
     │   ├── domain/
@@ -133,7 +133,7 @@ app/src/main/java/com/dd/sms/hook/
     │   │   ├── repository/   ReceivedSmsRepository
     │   │   ├── service/      SmsMatcher, TemplateRenderer, RequestFactory, DispatchContracts
     │   │   └── usecase/      HandleIncomingSmsUseCase, ExecuteQueuedCallUseCase,
-    │   │                     CallExecution, DispatchUseCases
+    │   │                     CallExecution, CallQueueUseCases, DispatchUseCases
     │   ├── data/
     │   │   ├── local/        ReceivedSmsEntity, ReceivedSmsDao
     │   │   ├── remote/       OkHttpExecutor
@@ -151,8 +151,14 @@ app/src/main/java/com/dd/sms/hook/
     │       ├── service/      DailyAggregator
     │       └── usecase/      ObserveDashboardUseCase
     │
+    ├── devtools/                                   # demo data, dev builds only
+    │   └── domain/
+    │       ├── model/        DemoData
+    │       ├── service/      DemoDataFactory
+    │       └── usecase/      DemoDataUseCases
+    │
     └── settings/                                   # app settings (DataStore)
-        ├── presentation/     SettingsScreen, AppearanceSection · SettingsViewModel
+        ├── presentation/     SettingsScreen, AppearanceSection, DeveloperSection · SettingsViewModel
         ├── domain/
         │   ├── model/        AppSettings
         │   ├── repository/   SettingsRepository

@@ -32,6 +32,7 @@ flowchart TD
 | `dispatch` | `received_sms` table, matching, templating, HTTP, workers, receivers, keep-alive service | - |
 | `dashboard` | Stats aggregation (no table) | Dashboard |
 | `settings` | DataStore settings | Settings |
+| `devtools` | Demo data for dev builds (no table, uses other features' repositories) | Developer section in Settings (dev flavor only) |
 
 ## Data flow: SMS to API call
 
